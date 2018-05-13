@@ -31,11 +31,29 @@ public final class Dadu {
       random = randGenerator.nextInt(16777215);
       Color sisi = new Color(random);
 
-      if(i != 0){
+      /*if(i != 0){
         for(int j=0; j<i; j++){
           while(sisi.toString() == warnaSisi[j]){
             random = randGenerator.nextInt(16777215);
             sisi = new Color(random);
+          }
+        }
+      }*/
+
+      int beda = 0;
+      if(i != 0){
+        int j=0;
+        while(beda != i){
+          System.out.println(sisi.toString() +" -- " +warnaSisi[j]);
+          if(sisi.toString() == warnaSisi[j]){
+            random = randGenerator.nextInt(16777215);
+            sisi = new Color(random);
+            beda = 0;
+            j = 0;
+            System.out.println(" PODO GAN! ");
+          }else{
+            j++;
+            beda++;
           }
         }
       }
@@ -57,15 +75,22 @@ public final class Dadu {
       System.out.println("Semua sisi sudah ditampilkan");
     }else{
       hasil = randGenerator.nextInt(jumSisi) + 1;
-
+      int beda = 0;
       if(perulangan != 0){
-        for(int j=0; j<perulangan; j++){
-          while(hasil == cekBedaNilai[j]){
+        int j=0;
+        while(beda != perulangan){
+          System.out.println(hasil +" -- " +cekBedaNilai[j]);
+          if(hasil == cekBedaNilai[j]){
             hasil = randGenerator.nextInt(jumSisi) + 1;
+            beda = 0;
+            j = 0;
+            System.out.println(" PODO GAN! ");
+          }else{
+            j++;
+            beda++;
           }
         }
       }
-
       cekBedaNilai[perulangan] = hasil;
       System.out.println("Warna sisi ke-" +hasil +" adalah " +getWarnaSisi(hasil-1));
       perulangan++;
